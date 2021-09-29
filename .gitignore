@@ -8,6 +8,7 @@ SRGAN/.ipynb_checkpoints/data_loader-checkpoint.py
 SRGAN/.ipynb_checkpoints/SRGAN_Rewrite-checkpoint.ipynb
 SRGAN/.ipynb_checkpoints/Streamlit_generator-checkpoint.py
 SRGAN/.ipynb_checkpoints/Streamlit_main-checkpoint.py
+SRGAN/.ipynb_checkpoints/
 *.pyc
 SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
 !SRGAN/datasets/img_align_celeba/130082.jpg
@@ -16,3 +17,4 @@ SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
 !SRGAN/datasets/img_align_celeba/130779.jpg
 !SRGAN/datasets/img_align_celeba/130869.jpg
 SRGAN/Backups/SRGAN.ipynb
+SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
