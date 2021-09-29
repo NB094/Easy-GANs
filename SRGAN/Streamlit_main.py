@@ -43,8 +43,11 @@ image_selection = left_column.selectbox(label = 'Select example image', options 
 
 
 # Insert original HR image
-image_dict = {'Celebrity A': 'datasets/img_align_celeba/130428.jpg', 'Celebrity B': 'datasets/img_align_celeba/130082.jpg', 'Celebrity C': 'datasets/img_align_celeba/130526.jpg', \
-              'Celebrity D': 'datasets/img_align_celeba/130779.jpg', 'Celebrity E': 'datasets/img_align_celeba/130869.jpg'}
+image_dict = {'Celebrity A': 'https://github.com/NB094/Easy-GANs/blob/main/SRGAN/datasets/img_align_celeba/130082.jpg', \
+              'Celebrity B': 'https://github.com/NB094/Easy-GANs/blob/main/SRGAN/datasets/img_align_celeba/130428.jpg', \
+              'Celebrity C': 'https://github.com/NB094/Easy-GANs/blob/main/SRGAN/datasets/img_align_celeba/130526.jpg', \
+              'Celebrity D': 'https://github.com/NB094/Easy-GANs/blob/main/SRGAN/datasets/img_align_celeba/130779.jpg', \
+              'Celebrity E': 'https://github.com/NB094/Easy-GANs/blob/main/SRGAN/datasets/img_align_celeba/130869.jpg'}
 
 img = Image.open(image_dict[image_selection])
 height = img.height
