@@ -37,28 +37,26 @@ class Generator():
         except:
             img = np.array(Image.open(self.img_object)).astype(float)
         
-        img_res = (256, 256)        
-        h, w = img_res
-        low_h, low_w = int(h / 4), int(w / 4)
+        low_h, low_w = int(256 / 4), int(256 / 4)
 
-        #img_hr = img
-        img_res = (178, 218)
+        img_res = (178, 218)  # Image resolution of original HR images in dataset
         img_hr = cv2.resize(img, img_res)
         img_lr = cv2.resize(img, (low_w, low_h))
 
-
-        #img_lr = np.array(img_lr) / 127.5 - 1.
-        img_lr = np.array(img_lr)/255
-
-        #img_hr = np.array(img_hr) / 127.5 - 1.
-        img_hr = np.array(img_hr)/255
+        img_lr = np.array(img_lr) / 127.5 - 1.
+        #img_lr = np.array(img_lr)/255    
+        img_hr = np.array(img_hr) / 127.5 - 1.
+        #img_hr = np.array(img_hr)/255
 
         # Expand dimensions to match generator's expected input dimensions, and predict
         img_lr2 = np.expand_dims(img_lr, axis=0)
         img_sr = a.predict(img_lr2)[0]
-        
+
+        img_lr = 0.5 * img_lr + 0.5
+        img_sr = 0.5 * img_sr + 0.5
+        img_hr = 0.5 * img_hr + 0.5
+
         # Resize img_lr and img_sr to match the original HR aspect ratio.
-        #img_res = (self.width, self.height)
         img_lr = cv2.resize(img_lr, img_res)
         img_sr = cv2.resize(img_sr, img_res)
         

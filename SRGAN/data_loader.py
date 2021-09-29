@@ -25,7 +25,7 @@ class DataLoader():
             img = self.imread(img_path)
 
             h, w = self.img_res
-            low_w, low_h = int(w / 4), int(h / 4)
+            low_h, low_w = int(h / 4), int(w / 4)
 
             img_hr = cv2.resize(img, self.img_res)
             img_lr = cv2.resize(img, (low_w, low_h))

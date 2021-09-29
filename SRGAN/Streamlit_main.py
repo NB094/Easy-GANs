@@ -62,15 +62,16 @@ img = Image.open(image_dict[image_selection])
 height = img.height
 width = img.width
 
-left_column2.image(image = image_dict[image_selection], caption = 'Original Image')
+#left_column2.image(image = image_dict[image_selection], caption = 'Original Image')
 
 
 # Generate LR and SR images
 gen = Generator(image_dict[image_selection], height, width)
-img_lr, img_sr, _ = gen.rescale_img()
+img_lr, img_sr, img_hr = gen.rescale_img()
 
 
-# Insert downscaled LR image
+# Insert original HR image and downscaled LR image
+left_column2.image(image = img_hr, caption = 'Original Image')
 middle_column2.image(image = img_lr, caption = 'Downscaled Image')
 
 
