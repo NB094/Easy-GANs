@@ -1,1 +1,2 @@
-# LHL_Final_Project
+# Easy-GANs
+Description to be added.
