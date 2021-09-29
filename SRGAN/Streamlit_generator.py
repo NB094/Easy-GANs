@@ -52,6 +52,7 @@ class Generator():
         img_lr2 = np.expand_dims(img_lr, axis=0)
         img_sr = a.predict(img_lr2)[0]
 
+        # Rescale image RGB values from 0 to 1
         img_lr = 0.5 * img_lr + 0.5
         img_sr = 0.5 * img_sr + 0.5
         img_hr = 0.5 * img_hr + 0.5

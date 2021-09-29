@@ -62,8 +62,6 @@ img = Image.open(image_dict[image_selection])
 height = img.height
 width = img.width
 
-#left_column2.image(image = image_dict[image_selection], caption = 'Original Image')
-
 
 # Generate LR and SR images
 gen = Generator(image_dict[image_selection], height, width)
@@ -71,13 +69,13 @@ img_lr, img_sr, img_hr = gen.rescale_img()
 
 
 # Insert original HR image and downscaled LR image
-left_column2.image(image = img_hr, caption = 'Original Image')
-middle_column2.image(image = img_lr, caption = 'Downscaled Image')
+right_column2.image(image = img_hr, caption = 'Original Image')
+left_column2.image(image = img_lr, caption = 'Downscaled Image')
 
 
 # Define function for inserting predicted SR image
 def create_SR():    
-    return right_column2.image(image = img_sr, caption = 'Enhanced Image', clamp=True)
+    return middle_column2.image(image = img_sr, caption = 'Enhanced Image', clamp=True)
 
 
 # Button for Example Images
@@ -120,13 +118,13 @@ if user_img is not None:
     gen2 = Generator(user_img, height2, width2)
     img_lr2, img_sr2, img_hr2 = gen2.rescale_img()
 
-    left_column4.image(image = img_hr2, caption = 'Original Image')
-    middle_column4.image(image = img_lr2, caption = 'Downscaled Image')
+    right_column4.image(image = img_hr2, caption = 'Original Image')
+    left_column4.image(image = img_lr2, caption = 'Downscaled Image')
 
 
 # Define function for inserting predicted SR image
 def create_SR2():    
-    return right_column4.image(image = img_sr2, caption = 'Enhanced Image', clamp=True)
+    return middle_column4.image(image = img_sr2, caption = 'Enhanced Image', clamp=True)
 
 
 # Button for own images
