@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from Streamlit_generator import Generator
+import urllib.request
 from PIL import Image
 
 # Page intro
@@ -42,8 +43,11 @@ left_column2, middle_column2, right_column2 = st.columns(3)
 image_selection = left_column.selectbox(label = 'Select example image', options = ['Celebrity A', 'Celebrity B', 'Celebrity C', 'Celebrity D', 'Celebrity E'])
 
 
+urllib.request.urlretrieve(
+  'https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130428.jpg',
+   "130428.jpg")
 # Insert original HR image
-image_dict = {'Celebrity A': 'https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130428.jpg', \
+image_dict = {'Celebrity A': '130428.jpg', \
               'Celebrity B': 'https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130082.jpg', \
               'Celebrity C': 'https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130526.jpg', \
               'Celebrity D': 'https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130779.jpg', \
