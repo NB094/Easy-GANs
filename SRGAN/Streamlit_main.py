@@ -69,8 +69,8 @@ img_lr, img_sr, img_hr = gen.rescale_img()
 
 
 # Insert original HR image and downscaled LR image
-right_column2.image(image = img_hr, caption = 'Original Image')
-left_column2.image(image = img_lr, caption = 'Downscaled Image')
+left_column2.image(image = img_hr, caption = 'Original Image')
+right_column2.image(image = img_lr, caption = 'Downscaled Image')
 
 
 # Define function for inserting predicted SR image
@@ -118,8 +118,8 @@ if user_img is not None:
     gen2 = Generator(user_img, height2, width2)
     img_lr2, img_sr2, img_hr2 = gen2.rescale_img()
 
-    right_column4.image(image = img_hr2, caption = 'Original Image')
-    left_column4.image(image = img_lr2, caption = 'Downscaled Image')
+    left_column4.image(image = img_hr2, caption = 'Original Image')
+    right_column4.image(image = img_lr2, caption = 'Downscaled Image')
 
 
 # Define function for inserting predicted SR image
