@@ -85,7 +85,6 @@ right_column.text('')
 if right_column.button(label = 'Click to Enhance Image!', key=1):
     create_SR()
 
-st.text(f'height: {height}, width: {width}')
 
 
 
