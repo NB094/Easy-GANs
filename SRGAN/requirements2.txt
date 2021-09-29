@@ -1,0 +1,9 @@
+numpy==1.21.2
+keras_contrib==2.0.8
+imageio==2.9.0
+opencv_python==4.5.3.56
+Keras==2.0.6
+streamlit==0.89.0
+scipy==1.7.1
+matplotlib==3.4.3
+Pillow==8.3.2
