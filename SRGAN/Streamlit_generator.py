@@ -3,6 +3,7 @@ import cv2
 import imageio    
 import numpy as np
 import matplotlib.pyplot as plt
+import urllib.request
 from PIL import Image
 
 class Generator():
@@ -27,7 +28,8 @@ class Generator():
 
         """
         # Load pre-trained model
-        a = load_model('saved_model/generator.h5', compile=False)
+        urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/SRGAN/saved_model/generator.h5?raw=true', 'generator.h5')
+        a = load_model('generator.h5', compile=False)
         
         # Assign img variable differently depending on if it's a user-uploaded image or not
         try:
