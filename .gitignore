@@ -1,1 +1,12 @@
 
+*.jpg
+*.jpeg
+*.pdf
+SRGAN/Backups/SRGAN Jupyter version.ipynb
+SRGAN/Backups/SRGAN Rewrite 30k first.ipynb
+SRGAN/.ipynb_checkpoints/data_loader-checkpoint.py
+SRGAN/.ipynb_checkpoints/SRGAN_Rewrite-checkpoint.ipynb
+SRGAN/.ipynb_checkpoints/Streamlit_generator-checkpoint.py
+SRGAN/.ipynb_checkpoints/Streamlit_main-checkpoint.py
+*.pyc
+SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
