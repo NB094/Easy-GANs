@@ -9,6 +9,7 @@ SRGAN/.ipynb_checkpoints/SRGAN_Rewrite-checkpoint.ipynb
 SRGAN/.ipynb_checkpoints/Streamlit_generator-checkpoint.py
 SRGAN/.ipynb_checkpoints/Streamlit_main-checkpoint.py
 SRGAN/.ipynb_checkpoints/
+SRGAN/Pickles/
 *.pyc
 SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
 !SRGAN/datasets/img_align_celeba/130082.jpg
@@ -18,3 +19,8 @@ SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
 !SRGAN/datasets/img_align_celeba/130869.jpg
 SRGAN/Backups/SRGAN.ipynb
 SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
+*.zip
+Pix2Pix/Colab-HumanGeneratorNotebook.ipynb
+Pix2Pix/logs/fit/20210929-215450/events.out.tfevents.1632974090.DESKTOP-QC03D90.v2
+SRGAN/data_loader - Copy.py
+Pix2Pix/.ipynb_checkpoints/
