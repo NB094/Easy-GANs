@@ -7,7 +7,7 @@ import tensorflow as tf
 class Generator():
     def __init__(self, img_object, subject):
         self.img_object = img_object        
-        self.subjecct = subject
+        self.subject = subject
 
     def load_image(filename, size=(256,256)):
         # load image with the preferred size
@@ -20,18 +20,23 @@ class Generator():
         pixels = expand_dims(pixels, 0)
         return pixels
 
+    def generate_image():
+        src_image = load_image(self.img_object)
+        print('Loaded', src_image.shape)
+        
+        # load model
+        if self.subject == 'Human':
+            urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'generatorX.h5')
+        
+        model = load_model('generatorX.h5')
 
-    src_image = load_image(self.img_object)
-    print('Loaded', src_image.shape)
-    # load model
-    urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/SRGAN/saved_model/generatorX.h5?raw=true', 'generatorX.h5')
-    model = load_model('saved_model/humans_fully_trained.h5')
+        # generate image from source
+        gen_image = model.predict(src_image)
 
-    # generate image from source
-    gen_image = model.predict(src_image)
+        gen_image = tf.reshape(gen_image, [256, 256, 3])
+        # scale from [-1,1] to [0,1]
+        gen_image = (gen_image + 1) / 2.0
 
-    gen_image = tf.reshape(gen_image, [256, 256, 3])
-    # scale from [-1,1] to [0,1]
-    gen_image = (gen_image + 1) / 2.0
+        return gen_image
 
 

@@ -2,6 +2,7 @@ import pandas as pd
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
+from Streamlit_Pix2Pix_Generator import Generator
 
 # Page intro
 st.title('Pix2Pix')
@@ -72,6 +73,9 @@ canvas_result = st_canvas(
 
 if canvas_result.image_data is not None:
     drawn_image = st.image(canvas_result.image_data)
+    gen = Generator(drawn_image, subject)
+    gen_image = gen.generate_image()
+    st.image(gen_image)
 
 # if canvas_result.json_data is not None:
 #     objects = pd.json_normalize(canvas_result.json_data["objects"])
