@@ -45,7 +45,7 @@ image_selection = left_column.selectbox(label = 'Select example image', options 
 
 # Load all required files from URLs
 urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130428.jpg', '130428.jpg')
-urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130082.jpg', '130082.jpg')
+urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/024324.jpg', '024324.jpg')
 urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130526.jpg', '130526.jpg')
 urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130779.jpg', '130779.jpg')
 urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/main/SRGAN/datasets/img_align_celeba/130869.jpg', '130869.jpg')
@@ -53,7 +53,7 @@ urllib.request.urlretrieve('https://raw.githubusercontent.com/NB094/Easy-GANs/ma
 
 # Insert original HR image
 image_dict = {'Celebrity A': '130428.jpg', \
-              'Celebrity B': '130082.jpg', \
+              'Celebrity B': '024324.jpg', \
               'Celebrity C': '130526.jpg', \
               'Celebrity D': '130779.jpg', \
               'Celebrity E': '130869.jpg'}
