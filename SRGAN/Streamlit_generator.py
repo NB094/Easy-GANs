@@ -28,8 +28,8 @@ class Generator():
 
         """
         # Load pre-trained model
-        urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/SRGAN/saved_model/generator.h5?raw=true', 'generator.h5')
-        a = load_model('generator.h5', compile=False)
+        urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/SRGAN/saved_model/generatorX.h5?raw=true', 'generatorX.h5')
+        a = load_model('generatorX.h5', compile=False)
         
         # Assign img variable differently depending on if it's a user-uploaded image or not
         try:
