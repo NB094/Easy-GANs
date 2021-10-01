@@ -73,23 +73,24 @@ class DataLoader():
             img_lr -= 0.5
             img_lr /= 0.5
             
-            h, w = self.img_res
-            low_h, low_w = int(h / 4), int(w / 4)
+#             h, w = self.img_res
+#             low_h, low_w = int(h / 4), int(w / 4)
 
-            img_hr = cv2.resize(image, self.img_res)
-            img_lr = cv2.resize(image, (low_w, low_h))
+#             img_hr = cv2.resize(image, self.img_res)
+#             img_lr = cv2.resize(image, (low_w, low_h))
 
-            # If training => do random flip
-            if not is_testing and np.random.random() < 0.5:
-                img_hr = np.fliplr(img_hr)
-                img_lr = np.fliplr(img_lr)
+#             # If training => do random flip
+#             if not is_testing and np.random.random() < 0.5:
+#                 img_hr = np.fliplr(img_hr)
+#                 img_lr = np.fliplr(img_lr)
 
 
             
-            imgs_hr.append(img_hr)
-            imgs_lr.append(img_lr)
+#             imgs_hr.append(img_hr)
+#             imgs_lr.append(img_lr)
 
-        # imgs_hr = np.array(imgs_hr) / 127.5 - 1.
-        # imgs_lr = np.array(imgs_lr) / 127.5 - 1.
+#         # imgs_hr = np.array(imgs_hr) / 127.5 - 1.
+#         # imgs_lr = np.array(imgs_lr) / 127.5 - 1.
 
-        return imgs_hr, imgs_lr
+        return img_hr, img_lr
+        # return imgs_hr, imgs_lr
