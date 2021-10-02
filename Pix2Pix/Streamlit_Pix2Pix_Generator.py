@@ -23,13 +23,34 @@ class Generator():
         pixels = expand_dims(pixels, 0)
         return pixels
 
-    def generate_image(self):
+
+
+    def generate_image(self, model):
         src_image = self.load_image(self.img_object)
         
-        # load model
-        if self.subject == 'Human':
-            # urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'generatorX.h5')
-            model = load_model('saved_model/humans_fully_trained.h5', compile=False)        
+
+        # # Load appropriate model
+        # if self.subject == 'Human':
+        #     # urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'generatorX.h5')
+        #     model = humans_model
+        # elif self.subject == 'Cat':
+        #     pass
+        # elif self.subject == 'Shoe':
+        #     model = shoes_model
+        # else:
+        #     model = handbags_model
+
+        # # Load appropriate model
+        # if self.subject == 'Human':
+        #     # urllib.request.urlretrieve('https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'generatorX.h5')
+        #     model = load_model('saved_model/humans_fully_trained.h5', compile=False)
+        # elif self.subject == 'Cat':
+        #     pass
+        # elif self.subject == 'Shoe':
+        #     model = load_model('saved_model/shoes_fully_trained.h5', compile=False)
+        # else:
+        #     model = load_model('saved_model/handbags_fully_trained.h5', compile=False)
+
 
         # generate image from source
         gen_image = model.predict(src_image)

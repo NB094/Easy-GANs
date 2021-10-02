@@ -5,15 +5,20 @@ import urllib.request
 from PIL import Image
 
 # Page intro
-st.title('Enhance Low Resolution Images with Machine Learning!')
+st.title('SRGAN – Enhance Low Resolution Images!')
 
 st.text('')
-st.text('Want to see a computer add more detail to a pixelated image?')
+st.markdown('Want to see a computer add more detail to a pixelated image?')
 st.text('')
-st.text('Choose an example image below or upload your own, and view a live demo!')
+st.markdown('Choose an example image below or upload your own, and view a live demo!')
 st.text('')
 
-expander = st.sidebar.expander("Frequently-Asked Questions", expanded=True)
+# Links and FAQ section
+st.sidebar.markdown("### [Pix2Pix Web Page](dummy)")
+st.sidebar.markdown("### [Number Generator Web Page](dummy)")
+st.sidebar.text('')
+
+expander = st.sidebar.expander("SRGAN Frequently-Asked Questions", expanded=True)
 expander.write("**What type of machine learning is being used?** \n\n \
 The model's architecture is based on a Super Resolution Generative Adversarial Network, or SRGAN. \n\n &nbsp \n\n \
 **How do GANs work?** \n\n \
@@ -25,8 +30,14 @@ After many cycles of training, the skill of the generator improves enough to pro
 The basic idea behind SRGANs is the same. The primary difference is way the model improves after each cycle, which is based on \
 a *loss* calculation. For SRGANs, this calculation is designed to maximize the perceptual quality of \
 upscaled images. \n\n &nbsp \n\n \
+**What are the possible applications of SRGANs?** \n\n \
+SRGANs can be used in any application where an increase in image quality is desired. This could take the form of a mobile app to get more mileage out of a user's camera, \
+or even in medical imaging and surveillance footage enhancement. \n\n &nbsp \n\n \
 **Where can I read more about SRGANs?** \n\n \
-For more information on SRGANs, check out [this paper.](https://arxiv.org/abs/1609.04802)     ")
+For more information on SRGANs, check out [this paper.](https://arxiv.org/abs/1609.04802)   \n\n &nbsp \n\n \
+**Who developed this web page?** \n\n \
+This web page and the underlying models were developed by Niklas Bergen with the help of some additional resources. \
+Check out the [GitHub repo](https://github.com/NB094/Easy-GANs) for more information.")
 
 st.text('')
 st.text('')
