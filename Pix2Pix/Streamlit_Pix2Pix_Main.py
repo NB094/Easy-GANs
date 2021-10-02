@@ -19,16 +19,16 @@ st.text('')
 ##### CODE FOR Pix2Pix #####
 
 
-
+# Set default subject and colors
 subject = 'Human'
 stroke_color = '#FFFFFF'
 background_color='#005000'
 
-
+# Define page layout
 left_column, right_column = st.columns([2,1])
 
+# Create selection box and logic for various sketch subjects.
 subject_selection = left_column.selectbox(label = 'Select what you wish to draw...', options = ['Human', 'Cat', 'Shoe', 'Handbag'], index = 0)
-
 if subject_selection == 'Human':
     subject = 'Human'
     stroke_color = '#FFFFFF'
@@ -47,7 +47,7 @@ if subject_selection == 'Handbag':
     background_color='#FFFFFF'
 
 
-bg_image = st.sidebar.file_uploader("Upload trace:", type=["png", "jpg"])
+bg_image = st.sidebar.file_uploader("Upload an image to trace:", type=["png", "jpg"])
 drawing_mode = st.sidebar.selectbox(
     "Drawing tool:", ("freedraw", "line", "rect", "circle", "polygon", "transform")
 )
@@ -56,69 +56,45 @@ right_column.text('')
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
 
-canvas_result = st_canvas(
-    fill_color="rgba(255, 255, 255, 0.0)",  # Fill colors have full transparency
-    stroke_width=1,
-    stroke_color=stroke_color,
-    background_color=background_color,
-    background_image=Image.open(bg_image) if bg_image else None,
-    #update_streamlit=realtime_update,
-    height=256,
-    width=256,
-    drawing_mode=drawing_mode,
-    key="canvas",
-)
+# Create the drawing canvas
+if 1 + 1 == 3:
+    canvas_result = st_canvas(
+        fill_color="rgba(255, 255, 255, 0.0)",  # Fill colors have full transparency
+        stroke_width=1,
+        stroke_color=stroke_color,
+        background_color=background_color,
+        background_image=Image.open(bg_image) if bg_image else None,
+        #update_streamlit=realtime_update,
+        height=256,
+        width=256,
+        drawing_mode=drawing_mode,
+        key="canvas")
+
+
+
 
 # right_column.button(label='Generate Real Image!')
 
-# Do something interesting with the image data and paths
 
+##### SKETCH PROCESSING #####
 
-# if canvas_result.image_data is not None:
-
-
-
-
-drawn_image = st.image(canvas_result.image_data, output_format = 'JPEG')
-
+# Store canvas sketch data into a variable
 drawn_image = canvas_result.image_data
-drawn_image = Image.fromarray(drawn_image, 'RGB')
-drawn_image = np.asarray(drawn_image)
-# drawn_image = np.reshape(drawn_image, (1, 256, 256, 3))
 
-st.text(f'drawn_image array shape: {drawn_image.shape}')
-st.text(f'drawn_image array: {drawn_image}')
+# Convert sketch data into parseable numpy array
+drawn_image = np.array(Image.fromarray((drawn_image * 255).astype(np.uint8)).resize((256, 256)).convert('RGB'))
+drawn_image = (drawn_image * 255).astype(np.uint8)
 
+# Convert array into image and save
+# downloaded_image = Image.fromarray(drawn_image)
+# downloaded_image.save('Sam.png')
 
+# drawn_image = Image.open('Sam.png')
+# drawn_image = np.asarray(drawn_image)
+
+# Pass numpy array into generator, and predict
 gen = Generator(drawn_image, subject)
 gen_image = gen.generate_image()
+
+# Display prediction
 st.image(gen_image)
-
-
-# st.text(f'gen_image array: {gen_image}')
-
-#st.pyplot(gen_image)
-
-# plt.imshow(gen_image)
-# plt.axis('off')
-# plt.show()
-
-
-
-# right_column.button(label='Generate', on_click=main_Pix2Pix())
-
-# if canvas_result.image_data is not None:
-#     drawn_image = st.image(canvas_result.image_data)
-#     gen = Generator(drawn_image, subject)
-#     gen_image = gen.generate_image()
-#     st.image(gen_image)
-
-# if canvas_result.json_data is not None:
-#     objects = pd.json_normalize(canvas_result.json_data["objects"])
-#     for col in objects.select_dtypes(include=['object']).columns:
-#         objects[col] = objects[col].astype("str")
-#     st.dataframe(objects)
-
-
-
-# Integrate model code!

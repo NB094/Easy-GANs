@@ -1,29 +1,31 @@
-
 *.jpg
 *.jpeg
 *.pdf
-SRGAN/Backups/SRGAN Jupyter version.ipynb
-SRGAN/Backups/SRGAN Rewrite 30k first.ipynb
-SRGAN/.ipynb_checkpoints/data_loader-checkpoint.py
-SRGAN/.ipynb_checkpoints/SRGAN_Rewrite-checkpoint.ipynb
-SRGAN/.ipynb_checkpoints/Streamlit_generator-checkpoint.py
-SRGAN/.ipynb_checkpoints/Streamlit_main-checkpoint.py
+*.zip
+*.pkl
+*.pyc
+*.png
+
+SRGAN/ESRGAN.ipynb
+SRGAN/Backups/
 SRGAN/.ipynb_checkpoints/
 SRGAN/Pickles/
-*.pyc
-SRGAN/.ipynb_checkpoints/srgan-checkpoint.py
+SRGAN/data_loader - Copy.py
+
 !SRGAN/datasets/img_align_celeba/024324.jpg
 !SRGAN/datasets/img_align_celeba/130428.jpg
 !SRGAN/datasets/img_align_celeba/130526.jpg
 !SRGAN/datasets/img_align_celeba/130779.jpg
 !SRGAN/datasets/img_align_celeba/130869.jpg
-SRGAN/Backups/SRGAN.ipynb
-SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
-*.zip
-Pix2Pix/Colab-HumanGeneratorNotebook.ipynb
-Pix2Pix/logs/fit/20210929-215450/events.out.tfevents.1632974090.DESKTOP-QC03D90.v2
-SRGAN/data_loader - Copy.py
+
 Pix2Pix/.ipynb_checkpoints/
-SRGAN/ESRGAN.ipynb
-SRGAN/ESRGAN.ipynb
-*.pkl
+Pix2Pix/Colab-HumanGeneratorNotebook.ipynb
+Pix2Pix/logs/fit/
+Pix2Pix/generated_images
+Pix2Pix/generatorX.h5
+
+!Pix2Pix/example_images_streamlit/example_handbag.jpg
+!Pix2Pix/example_images_streamlit/example_human.jpg
+!Pix2Pix/example_images_streamlit/example_shoe.jpg
+SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
+SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
