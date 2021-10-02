@@ -24,8 +24,19 @@ Pix2Pix/logs/fit/
 Pix2Pix/generated_images
 Pix2Pix/generatorX.h5
 
-!Pix2Pix/example_images_streamlit/example_handbag.jpg
-!Pix2Pix/example_images_streamlit/example_human.jpg
-!Pix2Pix/example_images_streamlit/example_shoe.jpg
-SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
+!Pix2Pix/example_images_streamlit/example_handbag1.jpg
+!Pix2Pix/example_images_streamlit/example_handbag2.jpg
+!Pix2Pix/example_images_streamlit/example_handbag3.jpg
+!Pix2Pix/example_images_streamlit/example_handbag4.jpg
+!Pix2Pix/example_images_streamlit/example_handbag5.jpg
+!Pix2Pix/example_images_streamlit/example_human1.jpg
+!Pix2Pix/example_images_streamlit/example_human2.jpg
+!Pix2Pix/example_images_streamlit/example_human3.jpg
+!Pix2Pix/example_images_streamlit/example_human4.jpg
+!Pix2Pix/example_images_streamlit/example_human5.jpg
+!Pix2Pix/example_images_streamlit/example_shoe1.jpg
+!Pix2Pix/example_images_streamlit/example_shoe2.jpg
+!Pix2Pix/example_images_streamlit/example_shoe3.jpg
+!Pix2Pix/example_images_streamlit/example_shoe4.jpg
+!Pix2Pix/example_images_streamlit/example_shoe5.jpg
 SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
