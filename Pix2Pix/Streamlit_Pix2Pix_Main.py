@@ -130,9 +130,13 @@ else:
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def cache_all_models():
     st.text('Missed cache')
-    humans_model = load_model('saved_model/humans_fully_trained.h5', compile=False)
-    shoes_model = load_model('saved_model/shoes_fully_trained.h5', compile=False)
-    handbags_model = load_model('saved_model/handbags_fully_trained.h5', compile=False)
+    urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'humans_fully_trained.h5')
+    urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/shoes_fully_trained.h5?raw=true', 'shoes_fully_trained.h5')
+    urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/handbags_fully_trained.h5?raw=true', 'handbags_fully_trained.h5')
+
+    humans_model = load_model('humans_fully_trained.h5', compile=False)
+    shoes_model = load_model('shoes_fully_trained.h5', compile=False)
+    handbags_model = load_model('handbags_fully_trained.h5', compile=False)
     return humans_model, shoes_model, handbags_model
 
 humans_model, shoes_model, handbags_model = cache_all_models()
