@@ -1,4 +1,3 @@
-import pandas as pd
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
@@ -11,11 +10,11 @@ from keras.models import load_model
 # Page intro
 st.title('Pix2Pix – See Your Sketches Brought to Life!')
 
-
 st.text('')
 st.markdown('Sketch out an object using the canvas below, and let your computer do the rest of the heavy lifting.')
 st.text('')
 st.text('')
+
 
 # Links and FAQ section
 st.sidebar.markdown("### [SRGANs Web Page](dummy)")
@@ -43,6 +42,7 @@ Check out the [GitHub repo](https://github.com/NB094/Easy-GANs) for more informa
 
 
 
+
 ##### CODE FOR Pix2Pix #####
 
 
@@ -61,16 +61,30 @@ else:
     background_color='#FFFFFF'
 
 
+# Initialize a random number in the session state. Used to randomize examples shown.
+if 'random_num' not in st.session_state:
+        st.session_state.random_num = 1
+
+
+# Change the random example number whenever the radio buttons are changed.
+def random_num():
+    st.session_state.random_num = np.random.randint(1,5+1)
+    return
+
+
+# Retrieve a randomly-selected example image
+urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/raw/main/Pix2Pix/example_images_streamlit/example_{str.lower(subject_selection)}{st.session_state.random_num}.jpg?raw=true', \
+                            'example_img.jpg')
+
+
 # Create more options menus
-canvas_mode = st.radio(label = 'Select canvas mode...', options = ('Draw on a blank canvas', 'View example sketch', 'Try tracing the example sketch'), \
-                       index = 1, help='Example sketches are chosen randomly out of 5 options.')
+canvas_mode = st.radio(label = 'Select canvas mode...', options = ('Draw on a blank canvas', 'View an example sketch', 'Try tracing an example sketch'), \
+                       index = 1, help='Example sketches are chosen randomly out of 5 options.', on_change=random_num)
 drawing_mode = right_column.selectbox(label = "Drawing tool:", options = ("freedraw", "line", "rect", "circle", "polygon", "transform"), index = 0)
 
 
-# Retrieve a randomly-selected example image and create the drawing canvas
-urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/raw/main/Pix2Pix/example_images_streamlit/example_{str.lower(subject_selection)}{np.random.randint(1,5+1)}.jpg?raw=true', \
-                            'example_img.jpg')
-if canvas_mode == 'View example sketch':    
+# Create the drawing canvas                            
+if canvas_mode == 'View an example sketch':    
     st.image('example_img.jpg')
 else:
     canvas_result = st_canvas(
@@ -78,16 +92,19 @@ else:
         stroke_width=1,
         stroke_color=stroke_color,
         background_color=background_color,
-        background_image=Image.open('example_img.jpg') if canvas_mode == 'Try tracing the example sketch' else None,
+        background_image=Image.open('example_img.jpg') if canvas_mode == 'Try tracing an example sketch' else None,
         height=256,
         width=256,
         drawing_mode=drawing_mode,
         key="canvas")
 
 
+
+
+
 ##### SKETCH PROCESSING #####
 
-if canvas_mode == 'View example sketch':
+if canvas_mode == 'View an example sketch':
     drawn_image = load_img('example_img.jpg')
 
 else:    
@@ -96,21 +113,20 @@ else:
     
     # Insert try/except loop to prevent website from temporarily throwing error when unchecking the box.
     # try:
+
     # Convert sketch data into parseable numpy array
-
-
     drawn_image = np.array(Image.fromarray((drawn_image * 255).astype(np.uint8)).resize((256, 256)).convert('RGB'))
     drawn_image = (drawn_image * 255).astype(np.uint8)
     
+    # If needed, convert black background to white before passing image to generator.
     if subject_selection != 'Human':
         drawn_image[drawn_image == 0] = 255
-
-# Insert try/except loop to prevent website from temporarily throwing error when unchecking the box.
-# try:
-# Pass numpy array into generator, and predict
-
+    
+    # except:
+        # pass
 
 
+# Load and cache model files due to large file sizes
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def cache_all_models():
     st.text('Missed cache')
@@ -122,19 +138,23 @@ def cache_all_models():
 humans_model, shoes_model, handbags_model = cache_all_models()
 
 if subject_selection=='Human':
-    st.text(f'Using {subject_selection} model...')
     model = humans_model
 elif subject_selection=='Shoe':
-    st.text(f'Using {subject_selection} model...')
     model = shoes_model
 elif subject_selection=='Handbag':
-    st.text(f'Using {subject_selection} model...')
     model = handbags_model    
 
+
+
+# Insert try/except loop to prevent website from temporarily throwing error when unchecking the box.
+# try:
+
+# Pass numpy array into generator, and predict
 gen = Generator(drawn_image, subject_selection)
 gen_image = gen.generate_image(model)
 
 # Display prediction
 st.image(gen_image)
+
 # except:
 #     pass
