@@ -15,7 +15,7 @@ st.text('')
 
 # Links and FAQ section
 st.sidebar.markdown("### [Pix2Pix Web Page](https://share.streamlit.io/nb094/easy-gans/main/Pix2Pix/Streamlit_Pix2Pix_Main.py)")
-st.sidebar.markdown("### [Number Generator Web Page](https://share.streamlit.io/nb094/easy-gans/main/NumGen/Streamlit_NumGen_Main.py)")
+st.sidebar.markdown("### [NumGen Web Page](https://share.streamlit.io/nb094/easy-gans/main/NumGen/Streamlit_NumGen_Main.py)")
 st.sidebar.text('')
 
 expander = st.sidebar.expander("SRGAN Frequently-Asked Questions", expanded=True)
@@ -46,7 +46,7 @@ st.text('')
 ##### CODE FOR EXAMPLE IMAGES #####
 
 # Format widgets and photos side by side
-left_column, right_column = st.columns([2,1])
+left_column, right_column = st.columns([1.96,1])
 left_column2, middle_column2, right_column2 = st.columns(3)
 
 
@@ -92,7 +92,7 @@ def create_SR():
 # Button for Example Images
 right_column.text('')
 right_column.text('')
-if right_column.button(label = 'Click to Enhance Image!', key=1):
+if right_column.button(label = 'Click to Enhance Celeb Image!', key=1):
     create_SR()
 
 
@@ -103,6 +103,9 @@ if right_column.button(label = 'Click to Enhance Image!', key=1):
 
 ##### CODE FOR USER-UPLOADED IMAGES #####
 
+st.text('')
+st.text('')
+st.text('')
 st.text('')
 st.text('')
 st.text('')
@@ -141,5 +144,5 @@ def create_SR2():
 # Button for own images
 right_column3.text('')
 right_column3.text('')
-if right_column3.button(label = 'Click to Enhance Image!', key=2):
+if right_column3.button(label = 'Click to Enhance Your Image!', key=2):
     create_SR2()
