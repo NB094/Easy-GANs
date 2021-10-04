@@ -23,6 +23,8 @@ Pix2Pix/Colab-HumanGeneratorNotebook.ipynb
 Pix2Pix/logs/fit/
 Pix2Pix/generated_images
 Pix2Pix/generatorX.h5
+Pix2Pix/saved_model/
+Pix2Pix/*.h5
 
 !Pix2Pix/example_images_streamlit/example_handbag1.jpg
 !Pix2Pix/example_images_streamlit/example_handbag2.jpg
@@ -40,3 +42,6 @@ Pix2Pix/generatorX.h5
 !Pix2Pix/example_images_streamlit/example_shoe4.jpg
 !Pix2Pix/example_images_streamlit/example_shoe5.jpg
 SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
+
+NumberGenerator/*.h5
+NumberGenerator/.ipynb_checkpoints/
