@@ -14,7 +14,7 @@ st.markdown('Choose an example image below or upload your own, and view a live d
 st.text('')
 
 # Links and FAQ section
-st.sidebar.markdown("### [Pix2Pix Web Page](dummy)")
+st.sidebar.markdown("### [Pix2Pix Web Page](https://share.streamlit.io/nb094/easy-gans/main/Pix2Pix/Streamlit_Pix2Pix_Main.py)")
 st.sidebar.markdown("### [Number Generator Web Page](dummy)")
 st.sidebar.text('')
 
