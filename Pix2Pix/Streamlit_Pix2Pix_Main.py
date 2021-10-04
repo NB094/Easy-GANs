@@ -17,7 +17,7 @@ st.text('')
 
 
 # Links and FAQ section
-st.sidebar.markdown("### [SRGANs Web Page](dummy)")
+st.sidebar.markdown("### [SRGANs Web Page](https://share.streamlit.io/nb094/easy-gans/main/SRGAN/Streamlit_SRGAN_Main.py)")
 st.sidebar.markdown("### [Number Generator Web Page](dummy)")
 st.sidebar.text('')
 
