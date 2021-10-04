@@ -43,5 +43,5 @@ Pix2Pix/*.h5
 !Pix2Pix/example_images_streamlit/example_shoe5.jpg
 SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
 
-NumberGenerator/*.h5
-NumberGenerator/.ipynb_checkpoints/
+NumGen/*.h5
+NumGen/.ipynb_checkpoints/
