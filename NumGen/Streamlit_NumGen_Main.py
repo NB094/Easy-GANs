@@ -78,6 +78,6 @@ if clicked:
     pyplot.imshow(X, cmap='gray_r')
     pyplot.axis('off')
     pyplot.show()
-    fig.savefig('test.png')
+    fig.savefig('generated_number.png')
     
-    st.image('test.png')
+    st.image('generated_number.png')
