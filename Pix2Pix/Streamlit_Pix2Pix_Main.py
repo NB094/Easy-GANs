@@ -7,7 +7,6 @@ import urllib.request
 from keras.preprocessing.image import load_img
 from keras.models import load_model
 import requests
-import h5py as h5
 
 # Page intro
 st.title('Pix2Pix – See Your Sketches Brought to Life!')
@@ -114,48 +113,38 @@ else:
     drawn_image = canvas_result.image_data
     
     # Insert try/except loop to prevent website from temporarily throwing error when unchecking the box.
-    # try:
-
-    # Convert sketch data into parseable numpy array
-    drawn_image = np.array(Image.fromarray((drawn_image * 255).astype(np.uint8)).resize((256, 256)).convert('RGB'))
-    drawn_image = (drawn_image * 255).astype(np.uint8)
+    try:
+        # Convert sketch data into parseable numpy array
+        drawn_image = np.array(Image.fromarray((drawn_image * 255).astype(np.uint8)).resize((256, 256)).convert('RGB'))
+        drawn_image = (drawn_image * 255).astype(np.uint8)
+        
+        # If needed, convert black background to white before passing image to generator.
+        if subject_selection != 'Human':
+            drawn_image[drawn_image == 0] = 255
     
-    # If needed, convert black background to white before passing image to generator.
-    if subject_selection != 'Human':
-        drawn_image[drawn_image == 0] = 255
-    
-    # except:
-        # pass
+    except:
+        pass
 
 
-# Load and cache model files due to large file sizes
+# Download load model files. Cache due to large file sizes
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def cache_all_models():
     st.text('Downloading models...')
     
     r = requests.get('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211074&authkey=AKxNvSc7K-dVn9k')
     with open('humans_fully_trained.h5', 'wb') as f:
-        f.write(r.content)
-    
+        f.write(r.content)    
     r = requests.get('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211076&authkey=AOXgLqS3bQIuwbU')
     with open('shoes_fully_trained.h5', 'wb') as f:
         f.write(r.content)
-
     r = requests.get('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211075&authkey=AAtjUZTrsNbE2zk')
     with open('handbags_fully_trained.h5', 'wb') as f:
         f.write(r.content)
 
-    # urllib.request.urlretrieve('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211074&authkey=AKxNvSc7K-dVn9k', 'humans_fully_trained.h5')
-    # urllib.request.urlretrieve('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211076&authkey=AOXgLqS3bQIuwbU', 'shoes_fully_trained.h5')
-    # urllib.request.urlretrieve('https://onedrive.live.com/download?cid=200A679661E47E0E&resid=200A679661E47E0E%211075&authkey=AAtjUZTrsNbE2zk', 'handbags_fully_trained.h5')
-    
-    # urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/humans_fully_trained.h5?raw=true', 'humans_fully_trained.h5')
-    # urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/shoes_fully_trained.h5?raw=true', 'shoes_fully_trained.h5')
-    # urllib.request.urlretrieve(f'https://github.com/NB094/Easy-GANs/blob/main/Pix2Pix/saved_model/handbags_fully_trained.h5?raw=true', 'handbags_fully_trained.h5')
-
     humans_model = load_model('humans_fully_trained.h5', compile=False)
     shoes_model = load_model('shoes_fully_trained.h5', compile=False)
     handbags_model = load_model('handbags_fully_trained.h5', compile=False)
+
     st.text('Download complete')
     return humans_model, shoes_model, handbags_model
 
@@ -171,14 +160,13 @@ elif subject_selection=='Handbag':
 
 
 # Insert try/except loop to prevent website from temporarily throwing error when unchecking the box.
-# try:
+try:
+    # Pass numpy array into generator, and predict
+    gen = Generator(drawn_image, subject_selection)
+    gen_image = gen.generate_image(model)
 
-# Pass numpy array into generator, and predict
-gen = Generator(drawn_image, subject_selection)
-gen_image = gen.generate_image(model)
+    # Display prediction
+    st.image(gen_image)
 
-# Display prediction
-st.image(gen_image)
-
-# except:
-#     pass
+except:
+    pass
