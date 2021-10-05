@@ -42,6 +42,8 @@ Pix2Pix/*.h5
 !Pix2Pix/example_images_streamlit/example_shoe3.jpg
 !Pix2Pix/example_images_streamlit/example_shoe4.jpg
 !Pix2Pix/example_images_streamlit/example_shoe5.jpg
+!Pix2Pix/test.png
+
 SRGAN/.ipynb_checkpoints/SRGAN-checkpoint.ipynb
 
 NumGen/*.h5
