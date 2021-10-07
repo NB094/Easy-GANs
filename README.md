@@ -39,6 +39,7 @@ The objective of Easy GANs is to seamlessly demonstrate the usefulness and funct
 
 No matter if you decide to run this code locally or try out the Streamlit web pages, Easy GANs aims to make the experience as straightforward as possible.
 
+<sub>[back to top](#easy-gans)</sub>
 ‎
 ### Project Setup Instructions
 To run one of these projects locally, please create a new virtual environment using the respective `requirements.txt` file provided in the parent folders. I recommend [Anaconda](https://www.anaconda.com/products/individual) for environment management. To read the `.ipynb` notebook files, open them in either Jupyter Lab or Jupyter Notebook. Each notebook contains detailed instructions on how to run the code, where to get the datasets, and more. Training was conducted locally on a Nvidia RTX 2080 Super GPU, and estimated training times are provided below. CPU training is not recommended for the Pix2Pix or SRGAN models.
